@@ -51,12 +51,12 @@ export class AppComponent {
   onTaskAdded(task: Task) {
     console.log('New task added:', task);
     this.closeModal();
-    // Implement logic to refresh the task list
+  
   }
 
   onTaskUpdated(task: Task) {
     console.log('Task updated:', task);
     this.closeModal();
-    // Implement logic to refresh the task list
+   
   }
 }
