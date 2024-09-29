@@ -1,0 +1,45 @@
+<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+    <thead>
+      <tr class="slds-line-height_reset">
+        <th scope="col">
+          <div class="slds-truncate" title="Title">Title</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Status">Status</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Actions">Actions</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td data-label="Title">
+          <div class="slds-truncate" title="{{task.title}}">{{task.title}}</div>
+        </td>
+        <td data-label="Status">
+          <div class="slds-truncate" title="{{task.status}}">{{task.status}}</div>
+        </td>
+        <td data-label="Actions">
+          <button class="slds-button slds-button_neutral" (click)="onEditTask(task)">Edit</button>
+          <button class="slds-button slds-button_destructive" (click)="confirmDelete(task)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="showDeleteConfirmation" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <div class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">Confirm Delete</h2>
+      </div>
+      <div class="slds-modal__content slds-p-around_medium">
+        <p>Are you sure you want to delete "{{taskToDelete?.title}}"?</p>
+      </div>
+      <div class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" (click)="cancelDelete()">Cancel</button>
+        <button class="slds-button slds-button_destructive" (click)="confirmDeleteTask()">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showDeleteConfirmation" class="slds-backdrop slds-backdrop_open"></div>

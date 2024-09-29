@@ -1,0 +1,60 @@
+<section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium slds-hyphenate">New Task</h2>
+      </header>
+      <div class="slds-modal__content slds-p-around_medium">
+        <form>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="title">Title</label>
+            <div class="slds-form-element__control">
+                  <input type="text" id="title" class="slds-input" [(ngModel)]="task.title" name="title">
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="assigned-to">Assigned To</label>
+            <div class="slds-form-element__control">
+              <input type="text" id="assigned-to" class="slds-input" [(ngModel)]="task.assignedTo" name="assignedTo">
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="status">Status</label>
+            <div class="slds-form-element__control">
+              <select id="status" class="slds-select" [(ngModel)]="task.status" name="status">
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="due-date">Due Date</label>
+            <div class="slds-form-element__control">
+              <input type="date" id="due-date" class="slds-input" [(ngModel)]="task.dueDate" name="dueDate">
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="priority">Priority</label>
+            <div class="slds-form-element__control">
+              <select id="priority" class="slds-select" [(ngModel)]="task.priority" name="priority">
+                <option value="Low">Low</option>
+                <option value="Normal">Normal</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="comments">Comments</label>
+            <div class="slds-form-element__control">
+              <textarea id="comments" class="slds-textarea" [(ngModel)]="task.comments" name="comments"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" (click)="closeModal()">Cancel</button>
+        <button class="slds-button slds-button_brand" (click)="saveTask()">Save</button>
+      </footer>
+    </div>
+  </section>
+<div class="slds-backdrop slds-backdrop_open"></div>
